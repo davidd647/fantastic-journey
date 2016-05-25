@@ -1,50 +1,35 @@
-apikey = "gpxshpia0phmqulm4aj65b7z";
-userLocation = "Toronto";
+var app = {};
 
-// $.ajax({
-//     url: 'https://openapi.etsy.com/v2/listings/active?api_key=gpxshpia0phmqulm4aj65b7z' + apikey,
-//     dataType: 'json',
-//     method:'GET',
-//     params{
+app.apikey = "gpxshpia0phmqulm4aj65b7z";
+app.userLocation = "Toronto";
 
-//     }
-// }).then(function(res) {
+app.init = function(){
+	app.getData();
+};
 
-// });
-// $.getJSON();
-// $.ajax({
-// 	url:'https://openapi.etsy.com/v2/listings/active',
-// 	data: {api_key: 'gpxshpia0phmqulm4aj65b7z'},
-// 	dataType: 'jsonp',
-// 	method: 'GET'
-// }).then(function(res){
-// 	console.log(res);
-// })
+app.getData = function(){
+		$.ajax({
+		url: 'https://openapi.etsy.com/v2/listings/active.js',
+		dataType: 'jsonp',
+		data: {
+			api_key: app.apikey,
+			keywords: "ceramic",
+			location: app.userLocation,
+			includes: 'Images:1'
+		},
+		success: function(data){
+			console.log(data,'success');
+			for(x in data.results){
+				$('div.cards')
+					.append('<p class="description">'+data.results[x].title+'</p>');
+			}
+		},
+		error: function(data){
+			console.log(data,'error');
+		}
+	});
+};
 
-
-
-// $.getJSON();
-// https://openapi.etsy.com/v2/listings/active.js
-// http://openapi.etsy.com/v2/shops/:shop_id/listings/active?method=GET&api_key=:api_key&fields=title,url&limit=100&includes=MainImage
-//https://openapi.etsy.com/v2/listings/active?&api_key=myapikey&keywords=israel+&limit=25&offset=0&sort_on=created&sort_order=down&category=Vintage/toy
-$.ajax({
-	url: 'https://openapi.etsy.com/v2/listings/active.js',
-	data: {
-		api_key: apikey,
-		keywords: "ceramic",
-		location: userLocation
-		// category: "children"
-		// latitude(10.0, 10.0)
-	},
-	dataType: 'jsonp',
-	success: function(data){
-	    console.log(data,'success');
-	    for(x in data.results){
-	        $('ul')
-	            .append('<li>'+data.results[x].title+'</li>');
-	    }
-	},
-	error: function(data){
-	    console.log(data,'error');        
-	}
+$(function(){
+	app.init();
 });
