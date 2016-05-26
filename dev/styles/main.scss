@@ -1,24 +1,6 @@
 @import 'setup';
-<<<<<<< HEAD
 
 // COLOR PALETTE VARIABLES
-
-
-.cards{
-    width:100%;
-    display:flex;
-    flex-wrap:wrap;
-
-    .card {
-        width:calc(33.33% - 4%);
-        margin: 2%;
-        // padding: 0;
-
-        img {
-            width: 100%;
-        }
-    }
-=======
 $bgColor: #ffffff;
 $fontColor: #2F576B;
 $accentColor: #34A8C4;
@@ -69,5 +51,19 @@ h2 {
 	width: 40%;
 	padding: 10px;
 	font-size: 
->>>>>>> 4908c1f59aa41b1cc6da1be503126e7f6f66c331
 }
+
+.cards{
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+
+    .card {
+        width:calc(33.33% - 4%);
+        margin: 2%;
+        // padding: 0;
+
+        img {
+            width: 100%;
+        }
+    }
