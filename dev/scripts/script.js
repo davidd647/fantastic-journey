@@ -20,11 +20,18 @@ app.getData = function(){
 		},
 		success: function(data){
 			console.log(data,'success');
+			var x = 0;
 			for(x in data.results){
-				$('div.cards')
-					.append('<img src="' + data.results[x].Images[0].url_570xN + '" alt="'+data.results[x].title+'">')
-					.append('<h3>'+data.results[x].title+'</h3>')
-					.append('<p class="description">'+data.results[x].description+' </p>');
+
+				var cardImg = $('<img>').attr('src',data.results[x].Images[0].url_570xN);
+				var cardTitle = $('<h3>').text(data.results[x].title);
+				var cardDescription = $('<p>').text(data.results[x].description);
+
+				//Concatenate all the HTML elements
+				var cardDiv = $('<div>').addClass('card card'+x).append(cardImg, cardTitle, cardDescription);
+
+				//Post them on the page
+				$('.cards').append(cardDiv);
 			}
 		},
 		error: function(data){
