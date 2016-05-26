@@ -32,7 +32,7 @@ app.getData = function (userLocation) {
 				var cardTitle = $('<h3>').html("<a href=" + cardUrl + ">" + data.results[x].title + "</a>");
 
 				//Concatenate all the HTML elements
-				var cardDiv = $('<div>').addClass('card card' + x).append(cardImg, cardTitle);
+				var cardDiv = $('<article>').addClass('card card' + x).append(cardImg, cardTitle);
 
 				//Post them on the page
 				$('.cards').append(cardDiv);
@@ -53,4 +53,19 @@ $('.search').on('click', function (e) {
 
 $(function () {
 	app.init();
+
+	// function smoothScroll(){
+	// 	$('a[href^="#"]').on('click',function (e) {
+	//     e.preventDefault();
+
+	//     var target = this.hash;
+	//     var $target = $(target);
+
+	//     $('html, body').stop().animate({
+	//         'scrollTop': $target.offset().top
+	//     }, 1000, 'swing', function () {
+	//         window.location.hash = target;
+	//     });
+	// 	});
+	// };
 });
