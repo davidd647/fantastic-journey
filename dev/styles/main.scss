@@ -6,16 +6,47 @@ $font: 'Montserrat', sans-serif;
 
 body {
 	font-family: $font;
+	font-size: 62.5%;
 }
 
 header {
 	height: 100vh;
-	background: lightgrey;
+	background-image: url('https://images.unsplash.com/photo-1462849251721-16fc0fa4609c?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=6eb5851e7126d8e8f222bd2a27dc59fe');
+	background-size: cover;
+	background-position: center;
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-end;
 }
 
 aside {
 	width: 50%;
-	background-color: $bgColor;
+	background-color: rgba(52,168,196,0.5);
+	display: flex;
+	color: white;
+
+	.wrapper {
+		margin: auto;
+		text-align: center;
+	}
+}
+
+.search {
+	display: block;
+	margin: 0 auto;
+}
+
+h1 {
+	font-size: 4rem;
+	letter-spacing: 1px;
+}
+
+h2 {
+	font-size: 1.3rem;
+}
+
+.cityInput {
+	margin: 5%;
+	width: 40%;
+	padding: 10px;
+	font-size: 
 }
