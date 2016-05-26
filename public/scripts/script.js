@@ -22,12 +22,13 @@ app.getData = function (userLocation) {
 		},
 		success: function success(data) {
 			$('.cards').empty();
-
+			console.log("Location entered: ", userLocation);
+			console.log("Data from Etsy: ", data);
 			var x = 0;
 			for (x in data.results) {
-
 				var cardImg = $('<img>').attr('src', data.results[x].Images[0].url_570xN);
-				var cardTitle = $('<h3>').text(data.results[x].title);
+				var cardUrl = data.results[x].url;
+				var cardTitle = $('<h3>').html("<a href=" + cardUrl + ">" + data.results[x].title + "</a>");
 				var cardDescription = $('<p>').text(data.results[x].description);
 
 				//Concatenate all the HTML elements
