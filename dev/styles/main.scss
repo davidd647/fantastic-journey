@@ -54,29 +54,6 @@ input[type=text] {
 	margin: 5%;
 	width: 60%;
 	padding: 10px;
-	font-size: 15px;
-}
-
-// CERAMIC GALLERY STYLES
-
-.galleryContainer {
-    width: 80%;
-}
-
-.cards{
-    width:100%;
-    display:flex;
-    flex-wrap:wrap;
-
-    .card {
-        width:calc(33.33% - 4%);
-        margin: 2%;
-        // padding: 0;
-
-        img {
-            width: 100%;
-        }
-    }
 	font-size: 1rem;
 	background-color: rgba(0,0,0,0);
 	border: 2px solid white;
@@ -98,6 +75,27 @@ input[type=text] {
 	&:-ms-input-placeholder {
 		color: white;
 	}
+}
+
+// CERAMIC GALLERY STYLES
+
+.galleryContainer {
+    width: 80%;
+}
+
+.cards{
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+
+    .card {
+        width:calc(33.33% - 4%);
+        margin: 2%;
+        // padding: 0;
+	}
+        img {
+            width: 100%;
+        }
 }
 
 .search {
