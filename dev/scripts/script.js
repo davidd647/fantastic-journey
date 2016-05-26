@@ -24,10 +24,10 @@ app.getData = function(userLocation){
 			console.log("Data from Etsy: ", data);
 			var x = 0;
 			for(x in data.results){
-				var cardImg = $('<img>').attr('src',data.results[x].Images[0].url_570xN);
+
+				var cardImg = $('<figure>').css('background-image','url('+data.results[x].Images[0].url_570xN+')');
 				var cardUrl = data.results[x].url;
 				var cardTitle = $('<h3>').html("<a href=" + cardUrl + ">" + data.results[x].title +"</a>");
-				// var cardDescription = $('<p>').text(data.results[x].description);
 
 				//Concatenate all the HTML elements
 				var cardDiv = $('<div>').addClass('card card'+x).append(cardImg, cardTitle);
