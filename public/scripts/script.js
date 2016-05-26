@@ -39,10 +39,25 @@ app.getData = function (userLocation) {
 			$('.cards').empty();
 			console.log("Location entered: ", userLocation);
 			console.log("Data from Etsy: ", data);
+<<<<<<< HEAD
 
 			//Display the first 25 results
 			for (var x = 0; x < 25; x++) {
 				app.displayCard(x, data);
+=======
+			var x = 0;
+			for (x in data.results) {
+
+				var cardImg = $('<figure>').css('background-image', 'url(' + data.results[x].Images[0].url_570xN + ')');
+				var cardUrl = data.results[x].url;
+				var cardTitle = $('<figcaption>').html("<a href=" + cardUrl + ">" + data.results[x].title + "</a>");
+
+				//Concatenate all the HTML elements
+				var cardDiv = $('<article>').addClass('card card' + x).append(cardImg, cardTitle);
+
+				//Post them on the page
+				$('.cards').append(cardDiv);
+>>>>>>> ebca4520001436648befa9dadd3ab95424d888b8
 			}
 			app.mostRecentlyCalledElement = 25;
 		},
@@ -76,4 +91,19 @@ $('.more_cards').on('click', function () {
 
 $(function () {
 	app.init();
+
+	// function smoothScroll(){
+	// 	$('a[href^="#"]').on('click',function (e) {
+	//     e.preventDefault();
+
+	//     var target = this.hash;
+	//     var $target = $(target);
+
+	//     $('html, body').stop().animate({
+	//         'scrollTop': $target.offset().top
+	//     }, 1000, 'swing', function () {
+	//         window.location.hash = target;
+	//     });
+	// 	});
+	// };
 });
