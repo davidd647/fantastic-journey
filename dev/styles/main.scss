@@ -142,14 +142,27 @@ figcaption {
 	visibility: hidden;
 	opacity: 0;
 	transition: all 0.5s ease;
+
+	.wrapper {
+		margin: auto;
+	}
 }
 
 a {
+	text-decoration: none;
+	margin: auto;
+}
+
+h3 {
+	font-size: 1rem;
+	font-weight: 700;
+	color: white;
+	padding-bottom: 5px;
+}
+
+p {
     font-size: 0.8rem;
-    font-weight: 700;
-    text-decoration: none;
     color: white;
-    margin: auto;
 }
 
 .cards figure {

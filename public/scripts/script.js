@@ -30,8 +30,12 @@ app.getData = function (userLocation) {
 			api_key: app.apikey,
 			keywords: "ceramic",
 			location: userLocation,
+<<<<<<< HEAD
+			includes: "Images:1, Shop(shop_name)"
+=======
 			includes: 'Images:1',
 			limit: 100
+>>>>>>> 4ff007f541900792f0b9ece410f4bc877c9e5d13
 		},
 		success: function success(data) {
 			app.data = data;
@@ -50,7 +54,7 @@ app.getData = function (userLocation) {
 
 				var cardImg = $('<figure>').css('background-image', 'url(' + data.results[x].Images[0].url_570xN + ')');
 				var cardUrl = data.results[x].url;
-				var cardTitle = $('<figcaption>').html("<a href=" + cardUrl + ">" + data.results[x].title + "</a>");
+				var cardTitle = $('<figcaption>').html('<a href=' + cardUrl + '> <div class="wrapper"> <h3>' + data.results[x].Shop.shop_name + '</h3>' + '<p>' + data.results[x].title + '</p> </div> </a>');
 
 				//Concatenate all the HTML elements
 				var cardDiv = $('<article>').addClass('card card' + x).append(cardImg, cardTitle);

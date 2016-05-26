@@ -11,7 +11,7 @@ app.init = function(){
 app.displayCard = function(x, data){
 	var cardImg = $('<figure>').css('background-image','url('+data.results[x].Images[0].url_570xN+')');
 	var cardUrl = data.results[x].url;
-	var cardTitle = $('<h3>').html("<a href=" + cardUrl + ">" + data.results[x].title +"</a>");
+	var cardTitle = $('<figcaption>').html('<a href=' + cardUrl + '> <div class="wrapper"> <h3>' + data.results[x].Shop.shop_name + '</h3>' + '<p>' + data.results[x].title + '</p> </div> </a>');
 
 	//Concatenate all the HTML elements
 	var cardDiv = $('<div>').addClass('card card'+x).append(cardImg, cardTitle);
@@ -28,7 +28,7 @@ app.getData = function(userLocation){
 			api_key: app.apikey,
 			keywords: "ceramic",
 			location: userLocation,
-			includes: 'Images:1',
+			includes: "Images:1, Shop(shop_name)",
 			limit: 100
 		},
 		success: function(data){
@@ -37,6 +37,7 @@ app.getData = function(userLocation){
 			$('.cards').empty();
 			console.log("Location entered: ", userLocation);
 			console.log("Data from Etsy: ", data);
+
 
 			//Display the first 25 results
 			for (var x = 0; x < 25; x++){
