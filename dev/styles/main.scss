@@ -97,6 +97,19 @@ input[type=text] {
     }
 }
 
+//LOADING PAGE STYLES
+.hideMe {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.showMe {
+    visibility: visible;
+    opacity: 1;
+    height: 100vh;
+    background-color: rgba(52,168,196,0.5);
+}
+
 // CERAMIC GALLERY STYLES
 
 .cards {
