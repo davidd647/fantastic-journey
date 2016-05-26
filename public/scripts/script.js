@@ -23,7 +23,7 @@ app.getData = function () {
 		success: function success(data) {
 			console.log(data, 'success');
 			for (x in data.results) {
-				$('div.cards').append('<p class="description">' + data.results[x].title + '</p>');
+				$('div.cards').append('<img src="' + data.results[x].Images[0].url_570xN + '" alt="' + data.results[x].title + '">').append('<h3>' + data.results[x].title + '</h3>').append('<p class="description">' + data.results[x].description + ' </p>');
 			}
 		},
 		error: function error(data) {

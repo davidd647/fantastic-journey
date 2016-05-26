@@ -1,1 +1,21 @@
 @import 'setup';
+$bgColor: #ffffff;
+$fontColor: #2F576B;
+$accentColor: #34A8C4;
+$font: 'Montserrat', sans-serif;
+
+body {
+	font-family: $font;
+}
+
+header {
+	height: 100vh;
+	background: lightgrey;
+	display: flex;
+	justify-content: space-between;
+}
+
+aside {
+	width: 50%;
+	background-color: $bgColor;
+}
