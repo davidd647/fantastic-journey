@@ -1,1 +1,20 @@
 @import 'setup';
+
+// COLOR PALETTE VARIABLES
+
+
+.cards{
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+
+    .card {
+        width:calc(33.33% - 4%);
+        margin: 2%;
+        // padding: 0;
+
+        img {
+            width: 100%;
+        }
+    }
+}
