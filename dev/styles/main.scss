@@ -85,7 +85,7 @@ h2 {
 
 // CERAMIC GALLERY STYLES
 
-.cards{
+.cards {
     width: 80%;
     display:flex;
     flex-wrap:wrap;
@@ -94,24 +94,23 @@ h2 {
     .card {
         width:calc(33.33% - 4%);
         margin: 2%;
+        text-align: center;
 
         figure {
             background-size: cover;
             background-position: center ;
             background-repeat: no-repeat;
             max-height: 300px;
-        }
-
-        img {
-            width: 100%;
-        }
-
-        figcaption {
-            font-size: 1rem;
-            color: $fontColor;
-            line-height: 1.5;
+            margin-bottom: 5%;
         }
     }
+}
+
+
+h3 a {
+    font-size: 0.75rem;
+    text-decoration: none;
+    color: $fontColor;
 }
 
 .cards figure {
