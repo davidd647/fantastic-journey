@@ -25,12 +25,12 @@ app.getData = function () {
 			var x = 0;
 			for (x in data.results) {
 
-				var cardImg = $('<img>').attr('src', data.results[x].Images[0].url_570xN);
+				var cardImg = $('<figure>').css('background-image', 'url(' + data.results[x].Images[0].url_570xN + ')');
 				var cardTitle = $('<h3>').text(data.results[x].title);
 				var cardDescription = $('<p>').text(data.results[x].description);
 
 				//Concatenate all the HTML elements
-				var cardDiv = $('<div>').addClass('card card' + x).append(cardImg, cardTitle, cardDescription);
+				var cardDiv = $('<article>').addClass('card card' + x).append(cardImg, cardTitle, cardDescription);
 
 				//Post them on the page
 				$('.cards').append(cardDiv);
