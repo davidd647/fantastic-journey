@@ -29,7 +29,7 @@ app.getData = function (userLocation) {
 
 				var cardImg = $('<figure>').css('background-image', 'url(' + data.results[x].Images[0].url_570xN + ')');
 				var cardUrl = data.results[x].url;
-				var cardTitle = $('<h3>').html("<a href=" + cardUrl + ">" + data.results[x].title + "</a>");
+				var cardTitle = $('<figcaption>').html("<a href=" + cardUrl + ">" + data.results[x].title + "</a>");
 
 				//Concatenate all the HTML elements
 				var cardDiv = $('<article>').addClass('card card' + x).append(cardImg, cardTitle);
