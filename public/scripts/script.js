@@ -22,8 +22,18 @@ app.getData = function () {
 		},
 		success: function success(data) {
 			console.log(data, 'success');
+			var x = 0;
 			for (x in data.results) {
-				$('div.cards').append('<p class="description">' + data.results[x].title + '</p>');
+
+				var cardImg = $('<img>').attr('src', data.results[x].Images[0].url_570xN);
+				var cardTitle = $('<h3>').text(data.results[x].title);
+				var cardDescription = $('<p>').text(data.results[x].description);
+
+				//Concatenate all the HTML elements
+				var cardDiv = $('<div>').addClass('card card' + x).append(cardImg, cardTitle, cardDescription);
+
+				//Post them on the page
+				$('.cards').append(cardDiv);
 			}
 		},
 		error: function error(data) {
