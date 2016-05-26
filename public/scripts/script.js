@@ -7,21 +7,22 @@ app.apikey = "gpxshpia0phmqulm4aj65b7z";
 app.userLocation = "Toronto";
 
 app.init = function () {
-	app.getData();
+	// app.getData(); //we want to wait for user input first
 };
 
-app.getData = function () {
+app.getData = function (userLocation) {
 	$.ajax({
 		url: 'https://openapi.etsy.com/v2/listings/active.js',
 		dataType: 'jsonp',
 		data: {
 			api_key: app.apikey,
 			keywords: "ceramic",
-			location: app.userLocation,
+			location: userLocation,
 			includes: 'Images:1'
 		},
 		success: function success(data) {
-			console.log(data, 'success');
+			$('.cards').empty();
+
 			var x = 0;
 			for (x in data.results) {
 
@@ -41,6 +42,13 @@ app.getData = function () {
 		}
 	});
 };
+
+$('.search').on('click', function (e) {
+	e.preventDefault(); //keep screen from refreshing when user clicks submit
+
+	var locationInput = $('input').val();
+	app.getData(locationInput);
+});
 
 $(function () {
 	app.init();
