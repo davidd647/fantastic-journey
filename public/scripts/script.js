@@ -10,6 +10,18 @@ app.init = function () {
 	// app.getData(); //we want to wait for user input first
 };
 
+app.displayCard = function (x, data) {
+	var cardImg = $('<figure>').css('background-image', 'url(' + data.results[x].Images[0].url_570xN + ')');
+	var cardUrl = data.results[x].url;
+	var cardTitle = $('<h3>').html("<a href=" + cardUrl + ">" + data.results[x].title + "</a>");
+
+	//Concatenate all the HTML elements
+	var cardDiv = $('<div>').addClass('card card' + x).append(cardImg, cardTitle);
+
+	//Post them on the page
+	$('.cards').append(cardDiv);
+};
+
 app.getData = function (userLocation) {
 	$.ajax({
 		url: 'https://openapi.etsy.com/v2/listings/active.js',
@@ -18,35 +30,21 @@ app.getData = function (userLocation) {
 			api_key: app.apikey,
 			keywords: "ceramic",
 			location: userLocation,
-			includes: 'Images:1'
+			includes: 'Images:1',
+			limit: 100
 		},
 		success: function success(data) {
+			app.data = data;
+			console.log("This global variable is assigned as: ", app.data);
 			$('.cards').empty();
 			console.log("Location entered: ", userLocation);
 			console.log("Data from Etsy: ", data);
-			var x = 0;
-			for (x in data.results) {
-<<<<<<< HEAD
 
-				var cardImg = $('<figure>').css('background-image', 'url(' + data.results[x].Images[0].url_570xN + ')');
-				var cardTitle = $('<h3>').text(data.results[x].title);
-				var cardDescription = $('<p>').text(data.results[x].description);
-
-				//Concatenate all the HTML elements
-				var cardDiv = $('<article>').addClass('card card' + x).append(cardImg, cardTitle, cardDescription);
-=======
-				var cardImg = $('<img>').attr('src', data.results[x].Images[0].url_570xN);
-				var cardUrl = data.results[x].url;
-				var cardTitle = $('<h3>').html("<a href=" + cardUrl + ">" + data.results[x].title + "</a>");
-				// var cardDescription = $('<p>').text(data.results[x].description);
-
-				//Concatenate all the HTML elements
-				var cardDiv = $('<div>').addClass('card card' + x).append(cardImg, cardTitle);
->>>>>>> 6937b44459684925aa7048baed7b85802e16f7bf
-
-				//Post them on the page
-				$('.cards').append(cardDiv);
+			//Display the first 25 results
+			for (var x = 0; x < 25; x++) {
+				app.displayCard(x, data);
 			}
+			app.mostRecentlyCalledElement = 25;
 		},
 		error: function error(data) {
 			console.log(data, 'error');
@@ -59,6 +57,21 @@ $('.search').on('click', function (e) {
 
 	var locationInput = $('input').val();
 	app.getData(locationInput);
+});
+
+$('.more_cards').on('click', function () {
+	//Display next 10 results
+	if (app.mostRecentlyCalledElement < 100) {
+		for (var x = app.mostRecentlyCalledElement; x < app.mostRecentlyCalledElement + 10; x++) {
+			app.displayCard(x, app.data);
+			if (x >= 99) {
+				app.mostRecentlyCalledElement = 100;
+			}
+		}
+		app.mostRecentlyCalledElement += 10;
+	} else {
+		$('more_cards').append("There are no more items...");
+	}
 });
 
 $(function () {
