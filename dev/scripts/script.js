@@ -91,6 +91,7 @@ app.getData = function(userLocation){
 			for (var x in data.results){
 				app.displayCard(x, data);
 			}
+		}
 		},
 		error: function(data){
 			console.log(data,'error');
