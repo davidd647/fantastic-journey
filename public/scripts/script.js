@@ -78,7 +78,6 @@ app.getData = function (userLocation) {
 			for (var x in data.results) {
 				app.displayCard(x, data);
 			}
-
 			app.mostRecentlyCalledElement = 25;
 		},
 		error: function error(data) {
@@ -92,7 +91,8 @@ $('.search').on('click', function (e) {
 
 	var locationInput = $('input').val();
 	app.getData(locationInput);
-	$('.loading-swayze').addClass('showMe');
+
+	$('.loading-swayze').addClass("showMe");
 });
 
 $('.more_cards').on('click', function () {
@@ -101,7 +101,7 @@ $('.more_cards').on('click', function () {
 });
 
 $(function () {
-	$('.search').on('click', function() {
+	$('input[type="submit"]').on('submit', function () {
 		$.smoothScroll({
 			scrollTarget: '#ceramic'
 		});
@@ -114,6 +114,7 @@ $(function () {
 $(window).scroll(function () {
 	if (app.returnedInfo && $(window).scrollTop() + $(window).height() == $(document).height()) {
 		console.log("We're at the bottom!");
+
 		var locationInput = $('input').val();
 		app.displayMoreCards(locationInput);
 	}
