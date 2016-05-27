@@ -16,9 +16,9 @@ body {
 
 header {
 	height: 100vh;
-	background-image: url('https://images.unsplash.com/photo-1462849251721-16fc0fa4609c?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=6eb5851e7126d8e8f222bd2a27dc59fe');
+	background-image: url('../images/header-image.jpg');
 	background-size: cover;
-	background-position: center;
+	background-position: center center;
 	display: flex;
 	justify-content: flex-end;
 }
@@ -119,6 +119,24 @@ input[type=text] {
     &:focus {
         background-color: $fontColor;
         color: white;
+    }
+}
+
+.hideMe {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.showMe {
+    visibility: visible;
+    opacity: 1;
+    height: 100vh;
+    background-color: rgba(52,168,196,0.5);
+    margin: auto;
+    text-align: center;
+    h2 {
+    	font-size: 40px;
+    	color: white;
     }
 }
 
