@@ -8,6 +8,45 @@ app.init = function(){
 	// app.getData(); //we want to wait for user input first
 
 	// When user submits their location, a loading page will show up briefly until the results are revealed!
+}
+
+app.displayMoreCards = function(userLocation){
+	$.ajax({
+		url: 'https://openapi.etsy.com/v2/listings/active.js',
+		dataType: 'jsonp',
+		data: {
+			api_key: app.apikey,
+			keywords: "ceramic",
+			location: userLocation,
+			includes: "Images:1, Shop(shop_name), Shop(url)",
+			limit: 9,
+			offset: app.mostRecentlyCalledElement
+		},
+		success: function(data){
+			app.data = data;
+			console.log("This global variable is assigned as: ",app.data);
+			// $('.cards').empty();
+			console.log("Location entered: ", userLocation);
+			console.log("Data from Etsy: ", data);
+
+			//Display the first 25 results
+			for (var x in data.results){
+				app.displayCard(x, data);
+			}
+
+			app.mostRecentlyCalledElement += 9;
+		},
+		error: function(data){
+			console.log(data,'error');
+		}
+	});
+}
+
+app.displayCard = function(x, data){
+	var cardImg = $('<figure>').css('background-image','url('+data.results[x].Images[0].url_570xN+')');
+	var cardUrl = data.results[x].url;
+	var cardTitle = $('<figcaption>').html('<div class="wrapper"> <h3><a href="' + data.results[x].Shop.url + '">' + data.results[x].Shop.shop_name + '</a></h3>' + '<p>' + data.results[x].title + '</p> <a href=' + cardUrl + '><button class="viewItem">View Item</button></a> </div>');
+>>>>>>> 5b2b685277cfcdd280ec3227894389f6e029e48b
 
 	// $('.search').on('click', function(){
 	// 	$('.loading').addClass('showMe');
@@ -26,7 +65,12 @@ app.getData = function(userLocation){
 			api_key: app.apikey,
 			keywords: "ceramic",
 			location: userLocation,
+<<<<<<< HEAD
 			includes: 'Images:1'
+=======
+			includes: "Images:1, Shop(shop_name), Shop(url)",
+			limit: 21
+>>>>>>> 5b2b685277cfcdd280ec3227894389f6e029e48b
 		},
 		success: function(data){
 			$('.cards').empty();
@@ -42,8 +86,14 @@ app.getData = function(userLocation){
 				//Concatenate all the HTML elements
 				var cardDiv = $('<article>').addClass('card card'+x).append(cardImg, cardTitle);
 
+<<<<<<< HEAD
 				//Post them on the page
 				$('.cards').append(cardDiv);
+=======
+			//Display the first 25 results
+			for (var x in data.results){
+				app.displayCard(x, data);
+>>>>>>> 5b2b685277cfcdd280ec3227894389f6e029e48b
 			}
 		},
 		error: function(data){
@@ -59,6 +109,15 @@ $('.search').on('click', function(e){
 	app.getData(locationInput);
 });
 
+<<<<<<< HEAD
+=======
+$('.more_cards').on('click',function(){
+	var locationInput = $('input').val();
+	app.displayMoreCards(locationInput);
+
+});
+
+>>>>>>> 5b2b685277cfcdd280ec3227894389f6e029e48b
 $(function(){
 	app.init();
 
