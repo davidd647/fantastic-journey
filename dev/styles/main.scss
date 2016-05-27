@@ -239,9 +239,8 @@ p {
 
 .loading-swayze {
   padding: 0;
-  position: absolute;
   text-align: center;
-  top: 90%;
+  top: 95%;
   width: 100%;
 }
 
@@ -251,6 +250,7 @@ p {
   border-radius: 50%;
   display: inline-block;
   height: 20px;
+  margin: 4px;
   text-align: center;
   width: 20px;
 }
@@ -272,7 +272,7 @@ p {
 }
 @keyframes bounce {
     0% {
-			transform: translateY(0);
+		transform: translateY(0);
     }
   	15% {
         transform: translateY(-15px);
@@ -282,14 +282,13 @@ p {
     }
 }
 
-// .more_cards{
-// 	width: 15%;
-// 	background-color: $accentColor;
-// 	color: white;
-// 	display: block;
-// 	margin: 10px auto 30px;
+// JS will add this class when location is submitted!
 
-// 	&:hover {
-// 		background-color: $fontColor;
-// 	}
-// }
+.loading-swayze {
+	display: none;
+}
+
+.showMe {
+	margin-top: 10px;
+	display: block;
+}
