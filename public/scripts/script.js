@@ -11,9 +11,13 @@ app.init = function () {
 
 	// When user submits their location, a loading page will show up briefly until the results are revealed!
 
-	$('.search').on('click', function () {
-		$('.loading').addClass('showMe');
-	});
+	// $('.search').on('click', function(){
+	// 	$('.loading').addClass('showMe');
+	// });
+
+	// setTimeout(function() {
+	// 	$('body').addClass('loaded');
+	// });
 };
 
 app.getData = function (userLocation) {
