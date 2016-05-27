@@ -30,7 +30,7 @@ app.getData = function (userLocation) {
 			api_key: app.apikey,
 			keywords: "ceramic",
 			location: userLocation,
-			includes: "Images:1, Shop(shop_name)",
+			includes: "Images:1, Shop(shop_name), Shop(url)",
 			limit: 100
 		},
 		success: function success(data) {
