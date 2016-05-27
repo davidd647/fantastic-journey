@@ -8,8 +8,6 @@ app.userLocation = "Toronto";
 
 app.init = function () {
 	// app.getData(); //we want to wait for user input first
-
-	// When user submits their location, a loading page will show up briefly until the results are revealed!
 };
 
 app.displayMoreCards = function (userLocation) {
@@ -46,14 +44,14 @@ app.displayMoreCards = function (userLocation) {
 
 app.displayCard = function (x, data) {
 	var cardImg = $('<figure>').css('background-image', 'url(' + data.results[x].Images[0].url_570xN + ')');
-
 	var cardUrl = data.results[x].url;
+	var cardTitle = $('<figcaption>').html('<a href=' + cardUrl + '> <div class="wrapper"> <h3>' + data.results[x].Shop.shop_name + '</h3>' + '<p>' + data.results[x].title + '</p> </div> </a>');
 
-	var cardTitle = $('<figcaption>').html('<div class="wrapper"> <h3><a href="' + data.results[x].Shop.url + '">' + data.results[x].Shop.shop_name + '</a></h3>' + '<p>' + data.results[x].title + '</p> <a href=' + cardUrl + '><button class="viewItem">View Item</button></a> </div>');
+	//Concatenate all the HTML elements
+	var cardDiv = $('<div>').addClass('card card' + x).append(cardImg, cardTitle);
 
-	$('.search').on('click', function () {
-		$('.loading').addClass('showMe');
-	});
+	//Post them on the page
+	$('.cards').append(cardDiv);
 };
 
 app.getData = function (userLocation) {
@@ -68,34 +66,17 @@ app.getData = function (userLocation) {
 			limit: 21
 		},
 		success: function success(data) {
+			app.data = data;
+			console.log("This global variable is assigned as: ", app.data);
 			$('.cards').empty();
 			console.log("Location entered: ", userLocation);
 			console.log("Data from Etsy: ", data);
 
-			// when results are loaded, loading page will disappear
-
-			// setTimeout(function() {
-			// 	$('body').addClass('loaded');
-			// });
-
-			var x = 0;
-			for (x in data.results) {
-
-				var cardImg = $('<figure>').css('background-image', 'url(' + data.results[x].Images[0].url_570xN + ')');
-				var cardUrl = data.results[x].url;
-				var cardTitle = $('<figcaption>').html('<div class="wrapper"> <h3><a href="' + data.results[x].Shop.url + '">' + data.results[x].Shop.shop_name + '</a></h3>' + '<p>' + data.results[x].title + '</p> <a href=' + cardUrl + '><button class="viewItem">View Item</button></a> </div>');
-
-				//Concatenate all the HTML elements
-				var cardDiv = $('<article>').addClass('card card' + x).append(cardImg, cardTitle);
-
-				//Post them on the page
-				$('.cards').append(cardDiv);
-
-				//Display the first 25 results
-				for (var x in data.results) {
-					app.displayCard(x, data);
-				}
+			//Display the first 25 results
+			for (var x in data.results) {
+				app.displayCard(x, data);
 			}
+			app.mostRecentlyCalledElement = 25;
 		},
 		error: function error(data) {
 			console.log(data, 'error');
