@@ -50,6 +50,7 @@ h2 {
 	font-size: 1rem;
 	padding: 5% 0;
 	font-family: $fontSecond;
+	letter-spacing: 1px;
 }
 
 input[type=text] {
@@ -65,6 +66,9 @@ input[type=text] {
 	color: white;
 	line-height: 1.5;
 	text-transform: capitalize;
+	font-family: $fontSecond;
+	font-weight: bold;
+	letter-spacing: 1px;
 		&::-webkit-input-placeholder {
 			color: white;
 		}
