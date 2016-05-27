@@ -96,29 +96,17 @@ $('.search').on('click', function(e){
 $('.more_cards').on('click',function(){
 	var locationInput = $('input').val();
 	app.displayMoreCards(locationInput);
-
 });
 
 $(function(){
+	$('input[type="submit"]').on('submit', function(){
+		$.smoothScroll({
+			scrollTarget: '#ceramic'
+		});
+	});
+
 	app.init();
-
-	// function smoothScroll(){
-	// 	$('a[href^="#"]').on('click',function (e) {
-	//     e.preventDefault();
-
-	//     var target = this.hash;
-	//     var $target = $(target);
-
-	//     $('html, body').stop().animate({
-	//         'scrollTop': $target.offset().top
-	//     }, 1000, 'swing', function () {
-	//         window.location.hash = target;
-	//     });
-	// 	});
-	// };
 });
-
-
 
 //Infinite scroll
 $(window).scroll(function(){
