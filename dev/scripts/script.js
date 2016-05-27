@@ -47,13 +47,9 @@ app.displayCard = function(x, data){
 	var cardUrl = data.results[x].url;
 	var cardTitle = $('<figcaption>').html('<div class="wrapper"> <h3><a href="' + data.results[x].Shop.url + '">' + data.results[x].Shop.shop_name + '</a></h3>' + '<p>' + data.results[x].title + '</p> <a href=' + cardUrl + '><button class="viewItem">View Item</button></a> </div>');
 
-	// $('.search').on('click', function(){
-	// 	$('.loading').addClass('showMe');
-	// });
-
-	// setTimeout(function() {
-	// 	$('body').addClass('loaded');
-	// });
+	$('.search').on('click', function(){
+		$('.loading').addClass('showMe');
+	});
 };
 
 app.getData = function(userLocation){
@@ -64,7 +60,6 @@ app.getData = function(userLocation){
 			api_key: app.apikey,
 			keywords: "ceramic",
 			location: userLocation,
-			includes: 'Images:1'
 			includes: "Images:1, Shop(shop_name), Shop(url)",
 			limit: 21
 		},
@@ -72,6 +67,13 @@ app.getData = function(userLocation){
 			$('.cards').empty();
 			console.log("Location entered: ", userLocation);
 			console.log("Data from Etsy: ", data);
+
+			// when results are loaded, loading page will disappear
+
+			setTimeout(function() {
+				$('body').addClass('loaded');
+			});
+
 			var x = 0;
 			for(x in data.results){
 
