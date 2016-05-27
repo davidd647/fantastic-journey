@@ -46,7 +46,9 @@ app.displayMoreCards = function (userLocation) {
 
 app.displayCard = function (x, data) {
 	var cardImg = $('<figure>').css('background-image', 'url(' + data.results[x].Images[0].url_570xN + ')');
+
 	var cardUrl = data.results[x].url;
+
 	var cardTitle = $('<figcaption>').html('<div class="wrapper"> <h3><a href="' + data.results[x].Shop.url + '">' + data.results[x].Shop.shop_name + '</a></h3>' + '<p>' + data.results[x].title + '</p> <a href=' + cardUrl + '><button class="viewItem">View Item</button></a> </div>');
 
 	$('.search').on('click', function () {
@@ -72,9 +74,9 @@ app.getData = function (userLocation) {
 
 			// when results are loaded, loading page will disappear
 
-			setTimeout(function () {
-				$('body').addClass('loaded');
-			});
+			// setTimeout(function() {
+			// 	$('body').addClass('loaded');
+			// });
 
 			var x = 0;
 			for (x in data.results) {
