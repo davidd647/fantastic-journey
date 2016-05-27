@@ -98,8 +98,10 @@ $('.more_cards').on('click', function () {
 });
 
 $(function () {
-	$('.search').on('click', function () {
-		$.smoothScroll({});
+	$('input[type="submit"]').on('submit', function () {
+		$.smoothScroll({
+			scrollTarget: '#ceramic'
+		});
 	});
 
 	app.init();
@@ -111,4 +113,6 @@ $(function () {
 
 //When they're at the bottom
 
-//testing
+//Test
+//Text
+//We want to get this to work!!!!

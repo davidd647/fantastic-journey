@@ -89,10 +89,6 @@ $('.search').on('click', function(e){
 	var locationInput = $('input').val();
 	app.getData(locationInput);
 	$('.more_cards').show();
-
-	$.smoothScroll({
-		scrollTarget: '#ceramic'
-	});
 });
 
 $('.more_cards').on('click',function(){
@@ -101,9 +97,13 @@ $('.more_cards').on('click',function(){
 });
 
 $(function(){
-	app.init();
+	$('input[type="submit"]').on('submit', function(){
+		$.smoothScroll({
+			scrollTarget: '#ceramic'
+		});
+	});
 
-	
+	app.init();
 });
 
 
