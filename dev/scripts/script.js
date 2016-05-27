@@ -112,7 +112,6 @@ $('.search').on('click', function(e){
 $('.more_cards').on('click',function(){
 	var locationInput = $('input').val();
 	app.displayMoreCards(locationInput);
-
 });
 
 $(function(){

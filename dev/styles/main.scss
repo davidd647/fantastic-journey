@@ -104,6 +104,28 @@ input[type=text] {
 		}
 }
 
+// Potential Loading Page Styles
+
+// .hideMe {
+//     visibility: hidden;
+//     opacity: 0;
+// }
+
+// .showMe {
+//     visibility: visible;
+//     opacity: 1;
+//     height: 100vh;
+//     background-color: rgba(52,168,196,0.5);
+//     margin: auto;
+//     text-align: center;
+//     h2 {
+//     	font-size: 40px;
+//     	color: white;
+//     }
+// }
+
+// CERAMIC GALLERY STYLES
+
 .search,
 .viewItem,
 .more_cards {
@@ -124,26 +146,6 @@ input[type=text] {
         color: white;
     }
 }
-
-.hideMe {
-    visibility: hidden;
-    opacity: 0;
-}
-
-.showMe {
-    visibility: visible;
-    opacity: 1;
-    height: 100vh;
-    background-color: rgba(52,168,196,0.5);
-    margin: auto;
-    text-align: center;
-    h2 {
-    	font-size: 40px;
-    	color: white;
-    }
-}
-
-// CERAMIC GALLERY STYLES
 
 .cards {
     width: 80%;
@@ -209,7 +211,6 @@ h3 {
 	a {
 		color: white;
 		transition: all 0.3s ease;
-
 		&:hover,
 		&:focus {
 			color: $fontColor;
