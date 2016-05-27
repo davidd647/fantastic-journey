@@ -86,19 +86,21 @@ input[type=text] {
 		}
 }
 
-.search {
+.search,
+.viewItem {
     width: 25%;
     padding: 5px;
     background-color: white;
     color: $fontColor;
-    border: 2px solid white;
+    border: none;
     font-size: 0.9rem;
     letter-spacing: 0.5px;
     font-weight: 700;
     transition: all 0.3s;
 
-    &:hover {
-        background-color: rgba(0,0,0,0);
+    &:hover,
+    &:focus {
+        background-color: $fontColor;
         color: white;
     }
 }
@@ -129,7 +131,8 @@ input[type=text] {
 	position: relative;
 	overflow: hidden;
 
-	&:hover figcaption {
+	&:hover figcaption,
+	&:focus figcaption {
 		bottom: 0;
 		visibility: visible;
 		opacity: 1;
@@ -163,13 +166,29 @@ h3 {
 	font-size: 1rem;
 	font-weight: 700;
 	color: white;
-	padding-bottom: 5px;
+	padding-bottom: 5%;
+
+	a {
+		color: white;
+		transition: all 0.3s ease;
+
+		&:hover,
+		&:focus {
+			color: $fontColor;
+		}
+	}
 }
 
 p {
     font-size: 0.8rem;
     color: white;
     font-family: $fontSecond;
+}
+
+.viewItem {
+	width: 50%;
+	font-size: 0.8rem;
+	margin-top: 10%;
 }
 
 .cards figure {
