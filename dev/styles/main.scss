@@ -282,8 +282,6 @@ p {
     }
 }
 
-// JS will add this class when location is submitted!
-
 .loading-swayze {
 	display: none;
 }
@@ -291,4 +289,66 @@ p {
 .showMe {
 	margin-top: 10px;
 	display: block;
+}
+
+//MEDIA QUERIES
+@media (max-width: 900px) {
+	aside {
+		width: 70%;
+	}
+
+	.site_creators {
+		width: 100%;
+		left: 0;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	figcaption {
+		position: relative;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 110px; 
+		background-color: rgba(52,168,196,1);
+		visibility: visible;
+		opacity: 1;
+
+		p {
+			display: none;
+		}
+	}
+
+	.viewItem {
+		margin-top: 0;
+	}
+
+	h3 {
+		font-size: 0.9rem;
+	}
+
+	.viewItem {
+		font-size: 0.8rem;
+	}
+}
+
+@media (max-width: 760px) {
+	.cards .card {
+		width: calc(50% - 4%);
+	}
+}
+
+@media (max-width: 550px) {
+	aside {
+		width: 100%;
+	}
+
+	.cards .card {
+		width: 100%;
+	}
+
+	figcaption {
+		max-height: 80px;
+		padding: 10px;
+	}
 }
