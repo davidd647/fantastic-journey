@@ -8,6 +8,38 @@ app.init = function(){
 	// app.getData(); //we want to wait for user input first
 };
 
+app.displayMoreCards = function(userLocation){
+	$.ajax({
+		url: 'https://openapi.etsy.com/v2/listings/active.js',
+		dataType: 'jsonp',
+		data: {
+			api_key: app.apikey,
+			keywords: "ceramic",
+			location: userLocation,
+			includes: "Images:1, Shop(shop_name), Shop(url)",
+			limit: 9,
+			offset: app.mostRecentlyCalledElement
+		},
+		success: function(data){
+			app.data = data;
+			console.log("This global variable is assigned as: ",app.data);
+			// $('.cards').empty();
+			console.log("Location entered: ", userLocation);
+			console.log("Data from Etsy: ", data);
+
+			//Display the first 25 results
+			for (var x in data.results){
+				app.displayCard(x, data);
+			}
+
+			app.mostRecentlyCalledElement += 9;
+		},
+		error: function(data){
+			console.log(data,'error');
+		}
+	});
+}
+
 app.displayCard = function(x, data){
 	var cardImg = $('<figure>').css('background-image','url('+data.results[x].Images[0].url_570xN+')');
 	var cardUrl = data.results[x].url;
@@ -29,7 +61,7 @@ app.getData = function(userLocation){
 			keywords: "ceramic",
 			location: userLocation,
 			includes: "Images:1, Shop(shop_name), Shop(url)",
-			limit: 100
+			limit: 21
 		},
 		success: function(data){
 			app.data = data;
@@ -40,7 +72,7 @@ app.getData = function(userLocation){
 
 
 			//Display the first 25 results
-			for (var x = 0; x < 25; x++){
+			for (var x in data.results){
 				app.displayCard(x, data);
 			}
 			app.mostRecentlyCalledElement = 25;
@@ -59,18 +91,9 @@ $('.search').on('click', function(e){
 });
 
 $('.more_cards').on('click',function(){
-	//Display next 10 results
-	if (app.mostRecentlyCalledElement < 100){
-		for (var x = app.mostRecentlyCalledElement; x < app.mostRecentlyCalledElement + 10; x++){
-			app.displayCard(x, app.data);
-			if (x >= 99){
-				app.mostRecentlyCalledElement = 100;
-			}
-		}
-		app.mostRecentlyCalledElement += 10;
-	} else {
-		$('more_cards').append("There are no more items...");
-	}
+	var locationInput = $('input').val();
+	app.displayMoreCards(locationInput);
+
 });
 
 $(function(){
