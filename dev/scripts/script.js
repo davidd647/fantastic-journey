@@ -3,6 +3,7 @@ var app = {};
 
 app.apikey = "gpxshpia0phmqulm4aj65b7z";
 app.userLocation = "Toronto";
+app.returnedInfo = false;
 
 app.init = function(){
 	// app.getData(); //we want to wait for user input first
@@ -65,6 +66,7 @@ app.getData = function(userLocation){
 		},
 		success: function(data){
 			app.data = data;
+			app.returnedInfo = true;
 			console.log("This global variable is assigned as: ",app.data);
 			$('.cards').empty();
 			console.log("Location entered: ", userLocation);
@@ -118,13 +120,13 @@ $(function(){
 
 
 
-//Track where the user is on the screen
+//Infinite scroll
+$(window).scroll(function(){
+	if ((app.returnedInfo) && ($(window).scrollTop() + $(window).height() == $(document).height())){
+		console.log("We're at the bottom!");
 
-//Start actually paying attention after they've submitted a location
+		var locationInput = $('input').val();
+		app.displayMoreCards(locationInput);
 
-//When they're at the bottom
-
-
-//Test
-//Text
-//We want to get this to work!!!!
+	}
+});
