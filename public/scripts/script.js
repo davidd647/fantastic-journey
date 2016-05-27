@@ -108,6 +108,7 @@ $('.search').on('click', function (e) {
 
 	var locationInput = $('input').val();
 	app.getData(locationInput);
+	$('.more_cards').show();
 });
 
 $('.more_cards').on('click', function () {
@@ -133,3 +134,9 @@ $(function () {
 	// 	});
 	// };
 });
+
+//Track where the user is on the screen
+
+//Start actually paying attention after they've submitted a location
+
+//When they're at the bottom
