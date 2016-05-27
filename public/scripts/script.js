@@ -91,7 +91,8 @@ $('.search').on('click', function (e) {
 
 	var locationInput = $('input').val();
 	app.getData(locationInput);
-	$('.more_cards').show();
+
+	$('.loading-swayze').show();
 });
 
 $('.more_cards').on('click', function () {
