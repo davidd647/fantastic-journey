@@ -21,6 +21,7 @@ header {
 	background-position: center center;
 	display: flex;
 	justify-content: flex-end;
+	position: relative;
 }
 
 aside {
@@ -33,23 +34,21 @@ aside {
 		margin: auto;
 		text-align: center;
 		width: 80%;
-		.site_creators {
-			position: absolute;
-			right: 15px;
-			top: 10px;
-			list-style: none;
-			a {
-				color: $bgColor;
-				transition: all 0.3s;
-				&:hover {
-				    color: black;
-				}
-			}
-			li {
-				display: inline;
-			}
 		}
+}
 
+.site_creators {
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+
+	p a {
+		color: white;
+		transition: all 0.3s;
+
+		&:hover {
+		    color: $fontColor;
+		}
 	}
 }
 
