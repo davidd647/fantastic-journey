@@ -116,7 +116,9 @@ $('.more_cards').on('click',function(){
 
 $(function(){
 	$('.search').on('click', function(){
-		$.smoothScroll({});
+		$.smoothScroll({
+			scrollTarget: '#ceramic'
+		});
 	});
 
 

@@ -117,22 +117,11 @@ $('.more_cards').on('click', function () {
 });
 
 $(function () {
+	$('.search').on('click', function () {
+		$.smoothScroll({});
+	});
+
 	app.init();
-
-	// function smoothScroll(){
-	// 	$('a[href^="#"]').on('click',function (e) {
-	//     e.preventDefault();
-
-	//     var target = this.hash;
-	//     var $target = $(target);
-
-	//     $('html, body').stop().animate({
-	//         'scrollTop': $target.offset().top
-	//     }, 1000, 'swing', function () {
-	//         window.location.hash = target;
-	//     });
-	// 	});
-	// };
 });
 
 //Track where the user is on the screen
@@ -140,3 +129,5 @@ $(function () {
 //Start actually paying attention after they've submitted a location
 
 //When they're at the bottom
+
+//testing
