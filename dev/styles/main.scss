@@ -5,6 +5,7 @@ $bgColor: #ffffff;
 $fontColor: #2F576B;
 $accentColor: #34A8C4;
 $font: 'Montserrat', sans-serif;
+$fontSecond: 'Raleway', sans-serif;
 
 body {
 	font-family: $font;
@@ -48,6 +49,8 @@ h1 {
 h2 {
 	font-size: 1rem;
 	padding: 5% 0;
+	font-family: $fontSecond;
+	letter-spacing: 1px;
 }
 
 input[type=text] {
@@ -63,6 +66,9 @@ input[type=text] {
 	color: white;
 	line-height: 1.5;
 	text-transform: capitalize;
+	font-family: $fontSecond;
+	font-weight: bold;
+	letter-spacing: 1px;
 		&::-webkit-input-placeholder {
 			color: white;
 		}
@@ -119,7 +125,7 @@ input[type=text] {
     }
 }
 
-article {
+.card {
 	position: relative;
 	overflow: hidden;
 
@@ -163,6 +169,7 @@ h3 {
 p {
     font-size: 0.8rem;
     color: white;
+    font-family: $fontSecond;
 }
 
 .cards figure {
