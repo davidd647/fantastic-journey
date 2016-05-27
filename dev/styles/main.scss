@@ -47,7 +47,7 @@ aside {
 		transition: all 0.3s;
 
 		&:hover {
-		    color: $fontColor;
+		    color: $accentColor;
 		}
 	}
 }
@@ -104,6 +104,28 @@ input[type=text] {
 		}
 }
 
+// Potential Loading Page Styles
+
+// .hideMe {
+//     visibility: hidden;
+//     opacity: 0;
+// }
+
+// .showMe {
+//     visibility: visible;
+//     opacity: 1;
+//     height: 100vh;
+//     background-color: rgba(52,168,196,0.5);
+//     margin: auto;
+//     text-align: center;
+//     h2 {
+//     	font-size: 40px;
+//     	color: white;
+//     }
+// }
+
+// CERAMIC GALLERY STYLES
+
 .search,
 .viewItem,
 .more_cards {
@@ -125,26 +147,6 @@ input[type=text] {
         color: white;
     }
 }
-
-.hideMe {
-    visibility: hidden;
-    opacity: 0;
-}
-
-.showMe {
-    visibility: visible;
-    opacity: 1;
-    height: 100vh;
-    background-color: rgba(52,168,196,0.5);
-    margin: auto;
-    text-align: center;
-    h2 {
-    	font-size: 40px;
-    	color: white;
-    }
-}
-
-// CERAMIC GALLERY STYLES
 
 .cards {
     width: 80%;
@@ -210,7 +212,6 @@ h3 {
 	a {
 		color: white;
 		transition: all 0.3s ease;
-
 		&:hover,
 		&:focus {
 			color: $fontColor;
@@ -234,13 +235,9 @@ p {
     height: 200px;
 }
 
-.more_cards{
-	width: 15%;
-	background-color: $accentColor;
-	color: white;
-	display: block;
-	margin: 10px auto 30px;
+// Loading animation when user scrolls to bottom of page
 
+<<<<<<< HEAD
 	&:hover {
 		background-color: $fontColor;
 	}
@@ -307,3 +304,61 @@ p {
 		padding: 10px;
 	}
 }
+=======
+.loading-swayze {
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  top: 90%;
+  width: 100%;
+}
+
+.dots {
+  animation: bounce 1.5s infinite linear;
+  background: $accentColor;
+  border-radius: 50%;
+  display: inline-block;
+  height: 20px;
+  text-align: center;
+  width: 20px;
+}
+
+.dots:nth-child(1){
+  animation-delay: .2s;
+}
+.dots:nth-child(2){
+  animation-delay: .4s;
+}
+.dots:nth-child(3){
+  animation-delay: .6s;
+}
+.dots:nth-child(4){
+  animation-delay: .8s;
+}
+.dots:nth-child(5){
+  animation-delay: 1s;
+}
+@keyframes bounce {
+    0% {
+			transform: translateY(0);
+    }
+  	15% {
+        transform: translateY(-15px);
+    }
+    30% {
+        transform: translateY(0);
+    }
+}
+
+// .more_cards{
+// 	width: 15%;
+// 	background-color: $accentColor;
+// 	color: white;
+// 	display: block;
+// 	margin: 10px auto 30px;
+
+// 	&:hover {
+// 		background-color: $fontColor;
+// 	}
+// }
+>>>>>>> 06cca7404af1475423d802e29ea8dea786bed0e3
