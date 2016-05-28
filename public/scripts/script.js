@@ -43,10 +43,28 @@ app.displayMoreCards = function (userLocation) {
 	});
 };
 
+app.parseShopName = function (storeNameNoSpaces) {
+	// console.log("storeNameNoSpaces: ", storeNameNoSpaces);
+
+	var storeNameArray = storeNameNoSpaces.match(/[A-Z][a-z]+/g);
+	var storeNameWithSpaces = "";
+	var x = 0;
+
+	for (x in storeNameArray) {
+		storeNameWithSpaces += storeNameArray[x] + " ";
+	}
+	if (storeNameWithSpaces === "") {
+		storeNameWithSpaces = storeNameNoSpaces;
+	}
+
+	return storeNameWithSpaces;
+};
+
 app.displayCard = function (x, data) {
 	var cardImg = $('<figure>').css('background-image', 'url(' + data.results[x].Images[0].url_570xN + ')');
 	var cardUrl = data.results[x].url;
-	var cardTitle = $('<figcaption>').html('<div class="wrapper"> <h3><a href="' + data.results[x].Shop.url + '">' + data.results[x].Shop.shop_name + '</a></h3>' + '<p>' + data.results[x].title + '</p> <a href=' + cardUrl + '><button class="viewItem">View Item</button></a> </div>');
+	var parsedShopName = app.parseShopName(data.results[x].Shop.shop_name);
+	var cardTitle = $('<figcaption>').html('<div class="wrapper"> <h3><a href="' + data.results[x].Shop.url + '">' + parsedShopName + '</a></h3>' + '<p>' + data.results[x].title + '</p> <a href=' + cardUrl + '><button class="viewItem">View Item</button></a> </div>');
 
 	//Concatenate all the HTML elements
 	var cardDiv = $('<div>').addClass('card card' + x).append(cardImg, cardTitle);
