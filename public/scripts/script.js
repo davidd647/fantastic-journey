@@ -91,7 +91,6 @@ $('.search').on('click', function (e) {
 
 	var locationInput = $('input').val();
 	app.getData(locationInput);
-
 	$('.loading-swayze').show();
 });
 
