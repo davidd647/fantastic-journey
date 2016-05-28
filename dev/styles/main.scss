@@ -118,11 +118,10 @@ input[type=text] {
 	background-size: 100% 100%;
 	background-position: center center;
 	background-repeat: no-repeat;
-}
 
-.swayze_site_creators p,
-.swayze_site_creators a {
-	background: white;
+	.go-back {
+		margin-top: 3%;
+	}
 }
 
 .sloth-gallery {
@@ -143,7 +142,7 @@ input[type=text] {
 
 .search,
 .viewItem,
-.more_cards {
+.go-back {
     width: 25%;
     min-width: 100px;
     padding: 5px;
@@ -367,7 +366,10 @@ p {
 
 @media (max-width: 550px) {
 	aside {
-		width: 100%;
+		max-width: 100%;
+		.wrapper {
+			width: 100%;
+		}
 	}
 
 	.cards .card {
