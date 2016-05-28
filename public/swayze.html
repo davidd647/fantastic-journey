@@ -2,23 +2,25 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Oh Wow Ceramics</title>
+	<title>CRAZY 4 SWAYZE</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="styles/style.css">
 	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<header>
+	<header class="swayze-header">
 		<aside>
 			<div class="wrapper">
 				<img src="images/ohWowLogo.png" alt="">
 				<h1>Oh Wow Ceramics</h1>
-				<h2>Discover local ceramic artists by entering your location below.</h2>
+				<h2>Much ceramic, such swayze, very sloth, wow!</h2>
 				<form action="">
 					<input type="text" class="cityInput" placeholder="Enter your location" required>
 					
 					<a href="#ceramic"><input type="submit" value="SEARCH" class="search"></a>
 				</form>
+
+				<a href="index.html"><button class="go-back">Back to site</button></a>
 			</div>
 		</aside>
 
@@ -27,26 +29,47 @@
 		</div>
 	</header>
 
-	<div id="ceramic" class="cards">
+	<div id="ceramic" class="sloth-gallery">
+		<figure>
+			<img src="images/ceramic_sloth.jpg" alt="">
+		</figure>
+
+		<figure>
+			<img src="images/ceramic_sloth.jpg" alt="">
+		</figure>
+
+		<figure>
+			<img src="images/ceramic_sloth.jpg" alt="">
+		</figure>
+
+		<figure>
+			<img src="images/ceramic_sloth.jpg" alt="">
+		</figure>
+
+		<figure>
+			<img src="images/ceramic_sloth.jpg" alt="">
+		</figure>
+
+		<figure>
+			<img src="images/ceramic_sloth.jpg" alt="">
+		</figure>
+
+		<figure>
+			<img src="images/ceramic_sloth.jpg" alt="">
+		</figure>
+
+		<figure>
+			<img src="images/ceramic_sloth.jpg" alt="">
+		</figure>
+
+		<figure>
+			<img src="images/ceramic_sloth.jpg" alt="">
+		</figure>
 	</div>
 
-	<div class="loading-swayze">
-		<div class="dots"></div>
-		<div class="dots"></div>
-		<div class="dots"></div>
-		<div class="dots"></div>
-		<div class="dots"></div>
-	</div>
-	
 	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="scripts/jquery.smooth-scroll.js"></script>
+	<script src="scripts/konami.js"></script>
 	 <script src="scripts/script.js"></script>
-	 <script src="scripts/konami.js"></script>
-
-	 <script>
-	 	//Konami Code :D
-	 	var easter_egg = new Konami('swayze.html');
-	 	console.log(easter_egg);
-	 </script>
 </body>
 </html>

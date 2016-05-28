@@ -111,11 +111,38 @@ input[type=text] {
 		}
 }
 
+// For Easter Egg :)
+.swayze-header {
+	height: 100vh;
+	background-image: url(../images/much-ceramic-wow.jpg);
+	background-size: 100% 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+
+	.go-back {
+		margin-top: 3%;
+	}
+}
+
+.sloth-gallery {
+	display: flex;
+	flex-wrap: wrap;
+
+	figure {
+		width: calc(33.33% - 4%);
+		margin: 2%;
+
+		img {
+			width: 100%;
+		}
+	}
+
+}
 // CERAMIC GALLERY STYLES
 
 .search,
 .viewItem,
-.more_cards {
+.go-back {
     width: 25%;
     min-width: 100px;
     padding: 5px;
@@ -339,7 +366,10 @@ p {
 
 @media (max-width: 550px) {
 	aside {
-		width: 100%;
+		max-width: 100%;
+		.wrapper {
+			width: 100%;
+		}
 	}
 
 	.cards .card {
