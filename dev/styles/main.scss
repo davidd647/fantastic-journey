@@ -104,6 +104,34 @@ input[type=text] {
 		}
 }
 
+// For Easter Egg :)
+.swayze-header {
+	height: 100vh;
+	background-image: url(../images/much-ceramic-wow.jpg);
+	background-size: 100% 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.swayze_site_creators p,
+.swayze_site_creators a {
+	background: white;
+}
+
+.sloth-gallery {
+	display: flex;
+	flex-wrap: wrap;
+
+	figure {
+		width: calc(33.33% - 4%);
+		margin: 2%;
+
+		img {
+			width: 100%;
+		}
+	}
+
+}
 // CERAMIC GALLERY STYLES
 
 .search,

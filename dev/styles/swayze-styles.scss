@@ -1,0 +1,105 @@
+@import 'setup';
+
+// COLOR PALETTE VARIABLES
+$bgColor: #ffffff;
+$fontColor: #2F576B;
+$accentColor: #34A8C4;
+$font: 'Montserrat', sans-serif;
+$fontSecond: 'Raleway', sans-serif;
+
+body {
+	font-family: $font;
+	font-size: 62.5%;
+}
+
+// HEADER STYLES
+
+header {
+	height: 100vh;
+	background-image: url('../images/header-image.jpg');
+	background-size: cover;
+	background-position: center center;
+	display: flex;
+	justify-content: flex-end;
+	position: relative;
+}
+
+aside {
+	width: 50%;
+	background-color: rgba(52,168,196,0.5);
+	display: flex;
+	color: white;
+
+	.wrapper {
+		margin: auto;
+		text-align: center;
+		width: 80%;
+		}
+}
+
+.site_creators {
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+
+	p a {
+		color: white;
+		transition: all 0.3s;
+
+		&:hover {
+		    color: $accentColor;
+		}
+	}
+}
+
+.search {
+	display: block;
+	margin: 0 auto;
+}
+
+h1 {
+	font-size: 4rem;
+	letter-spacing: 1px;
+}
+
+h2 {
+	font-size: 1rem;
+	padding: 5% 0;
+	font-family: $fontSecond;
+	letter-spacing: 1px;
+}
+
+input[type=text] {
+	margin: 5%;
+	min-width: 150px;
+	width: 60%;
+	padding: 10px;
+	font-size: 1.5rem;
+	border: 2px solid $accentColor;
+	font-size: 1rem;
+	background-color: rgba(0,0,0,0);
+	border: 2px solid white;
+	border-radius: 2px;
+	text-align: center;
+	color: white;
+	line-height: 1.5;
+	text-transform: capitalize;
+	font-family: $fontSecond;
+	font-weight: bold;
+	letter-spacing: 1px;
+		&::-webkit-input-placeholder {
+			color: white;
+		}
+
+		&:-moz-placeholder { /* Firefox 18- */
+			color: white;
+		}
+
+		&::-moz-placeholder {  /* Firefox 19+ */
+			color: white;
+		}
+
+		&:-ms-input-placeholder {
+			color: white;
+		}
+}
