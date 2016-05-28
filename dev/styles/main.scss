@@ -104,26 +104,6 @@ input[type=text] {
 		}
 }
 
-// Potential Loading Page Styles
-
-// .hideMe {
-//     visibility: hidden;
-//     opacity: 0;
-// }
-
-// .showMe {
-//     visibility: visible;
-//     opacity: 1;
-//     height: 100vh;
-//     background-color: rgba(52,168,196,0.5);
-//     margin: auto;
-//     text-align: center;
-//     h2 {
-//     	font-size: 40px;
-//     	color: white;
-//     }
-// }
-
 // CERAMIC GALLERY STYLES
 
 .search,
@@ -242,6 +222,7 @@ p {
   text-align: center;
   top: 95%;
   width: 100%;
+  margin: 1%;
 }
 
 .dots {
@@ -302,6 +283,12 @@ p {
 		left: 0;
 		margin: 0 auto;
 		text-align: center;
+
+		p,a {
+			width: 70%;
+			margin: auto;
+			line-height: 1.5;
+		}
 	}
 
 	figcaption {
